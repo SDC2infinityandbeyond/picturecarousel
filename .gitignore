@@ -1,0 +1,10 @@
+
+
+# Service/node_modules
+# Service/coverage
+
+# #password for database
+# Service/database/index.js
+
+# #save for refactoring later
+# Service/client/src/components/Save.jsx
