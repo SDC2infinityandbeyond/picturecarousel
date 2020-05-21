@@ -4,19 +4,36 @@ CREATE DATABASE airbnbcarousel;
 
 \c airbnbcarousel;
 
+DROP TABLE IF EXISTS host;
 DROP TABLE IF EXISTS property;
 DROP TABLE IF EXISTS imagearray;
 
+CREATE TABLE host(
+  hostId SERIAL PRIMARY KEY,
+  hostName VARCHAR(255),
+  hostStatus VARCHAR(255),
+  joinDate DATE
+);
+
 CREATE TABLE property(
-   property_id   SERIAL PRIMARY KEY,
-   description   VARCHAR(255)
+   propertyId SERIAL PRIMARY KEY,
+   hostId INTEGER REFERENCES host(hostId),
+   propertyName VARCHAR(1000),
+   city VARCHAR(255),
+   usState VARCHAR(255),
+   country VARCHAR(255),
+   guests INTEGER,
+   bedrooms INTEGER,
+   beds INTEGER,
+   baths INTEGER,
+   propertyDescription VARCHAR(2000)
 );
 
 CREATE TABLE imagearray(
-   image_id      SERIAL PRIMARY KEY,
-   property_id   INTEGER REFERENCES property(property_id),
-   url           VARCHAR(255),
-   description   VARCHAR(255)
+   imageId      SERIAL PRIMARY KEY,
+   propertyId   INTEGER REFERENCES property(propertyId),
+   imageUrl           VARCHAR(255),
+   imageDescription   VARCHAR(255)
 );
 
 INSERT INTO property VALUES (0, 'Rock Reach House - as profiled in dwell');
