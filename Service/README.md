@@ -74,6 +74,7 @@ npm install
       "city": "String",
       "usState": "String",
       "country": "String",
+      "propertyType": "String",
       "guests": "Number",
       "bedrooms": "Number",
       "beds": "Number",
@@ -149,6 +150,7 @@ npm install
       "city": "String",
       "usState": "String",
       "country": "String",
+      "propertyType": "String",
       "guests": "Number",
       "bedrooms": "Number",
       "beds": "Number",
@@ -170,8 +172,8 @@ npm install
 ```json
     {
       "propertyId": "Number",
-      "imageDescription": "String",
-      "imageUrl": "String"
+      "imageUrl": "String",
+      "imageDescription": "String"
     }
 ```
 
@@ -206,6 +208,7 @@ npm install
     {
       "hostID": "String",
       "propertyName": "String",
+      "propertyType": "String",
       "guests": "Number",
       "bedrooms": "Number",
       "beds": "Number",
@@ -229,8 +232,8 @@ npm install
     {
       "propertyID": "Number",
       "imageID": "Number",
-      "imageDescription": "String",
-      "imageUrl": "String"
+      "imageUrl": "String",
+      "imageDescription": "String"
     }
 ```
 
