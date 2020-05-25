@@ -1,7 +1,7 @@
 const createCsvWriter = require('csv-writer').createObjectCsvWriter;
 const faker = require('faker');
 
-const seedsize = 5000000;
+const seedsize = 3000000;
 
 const hostWriter = createCsvWriter({
   path: 'host.csv',
@@ -56,18 +56,18 @@ var propertynamerandom = ['Ocean Front', 'Beautiful', 'Sunny', 'Magical', 'Renov
 var propertytyperandom = ['Apartment', 'Condomonium', 'Loft', 'Serviced apartment', 'House', 'Bungalow', 'Cabin', 'Chalet', 'Cottage', 'Dome house', 'Earth house', 'Farm stay', 'Houseboat', 'Hut', 'Lighthouse', 'Tiny house', 'Townhouse', 'Villa', 'Guest house', 'Guest stay', 'Barn', 'Boat', 'Bus', 'Camper/RV', 'Campsite', 'Castle', 'Cave', 'Hut', 'Igloo', 'Island', 'Lighthouse', 'Plane', 'Tent', 'Tipi', 'Train', 'Treehouse', 'Windmill', 'Yurt', 'Bed and breakfast', 'Nature lodge', 'Boutique hotel', 'Aparthotel', 'Hostel', 'Hotel', 'Resort'];
 const propertydata = [];
 const generateProperty = () => {
-  for (let i = 0; i < seedsize; i++) {
+  for (let j = 0; j < seedsize; j++) {
     let propertyRandom = {};
-    propertyRandom.propertyid = i+1;
+    propertyRandom.propertyid = j+1;
     propertyRandom.city = faker.address.city();
     propertyRandom.usstate = faker.address.state();
     propertyRandom.country = faker.address.country();
     propertyRandom.propertytype = faker.random.arrayElement(propertytyperandom);
     propertyRandom.propertyname = `${faker.random.arrayElement(propertynamerandom)} ${propertyRandom.propertytype} in ${propertyRandom.city}`;
     propertyRandom.guests = faker.random.number({min:1, max:16});
-    propertyRandom.bedrooms = faker.random.number({min: 1, max: 50});
-    propertyRandom.beds = faker.random.number({min: 1, max: 50});
-    propertyRandom.baths = faker.random.number({min: 1, max: 50});
+    propertyRandom.bedrooms = faker.random.number({min: 1, max: 15});
+    propertyRandom.beds = faker.random.number({min: 1, max: 15});
+    propertyRandom.baths = faker.random.number({min: 1, max: 15});
     propertyRandom.propertydescription = faker.lorem.sentences();
     propertydata.push(propertyRandom);
   }
@@ -75,14 +75,14 @@ const generateProperty = () => {
 
 const imagedata = [];
 const generateImage = () => {
-  for (let i = 0; i < seedsize; i++) {
+  for (let k = 0; k < seedsize; k++) {
     let imageRandom = {};
-    imageRandom.imageid = i+1;
+    imageRandom.imageid = k+1;
     const generateUrl = () => {
       let imageArr = [];
-      let numberofPics = faker.random.number({min: 5, max: 15});
-      for (let j = 0; j < numberofPics; j++) {
-        imageArr.push('http://loremflickr.com/729/548/resorts');
+      let numberofPics = faker.random.number({min: 5, max: 10});
+      for (let l = 0; l < numberofPics; l++) {
+        imageArr.push('http://loremflickr.com/729/548/hotel');
       }
       return imageArr;
     };

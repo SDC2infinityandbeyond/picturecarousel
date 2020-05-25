@@ -41,23 +41,6 @@ npm install
 
 ## Server API
 
-### Get host
-  * GET `/host/:hostID`
-
-**Path Parameters:**
-  * `hostID` host id
-
-**Success Status Code:** `200`
-
-**Returns:** JSON
-```json
-    {
-      "hostName": "String",
-      "hostStatus": "String",
-      "joinDate": "Date"
-    }
-```
-
 ### Get property
   * GET `/property/:propertyID`
 
@@ -70,6 +53,8 @@ npm install
 ```json
     {
       "propertyId": "Number",
+      "hostName": "String",
+      "hostStatus": "String",
       "propertyName": "String",
       "city": "String",
       "usState": "String",
@@ -80,7 +65,6 @@ npm install
       "beds": "Number",
       "baths": "Number",
       "propertyDescription": "String",
-      "hostStatus": "String",
     }
 ```
 ### Get all pictures
@@ -121,21 +105,6 @@ npm install
 ```
 
 
-### Add host
-  * POST `/host`
-
-**Success Status Code:** `201`
-
-**Request Body**: Expects JSON with the following keys.
-
-```json
-    {
-      "hostName": "String",
-      "hostStatus": "String",
-      "joinDate": "Date"
-    }
-```
-
 ### Add property
   * POST `/property`
 
@@ -145,7 +114,8 @@ npm install
 
 ```json
     {
-      "hostID": "String",
+      "hostName": "String",
+      "hostStatus": "String",
       "propertyName": "String",
       "city": "String",
       "usState": "String",
@@ -177,23 +147,6 @@ npm install
     }
 ```
 
-### Update host info
-  * PATCH `/host:hostID`
-
-**Path Parameters:**
-  * `hostID` host id
-
-**Success Status Code:** `200`
-
-**Request Body**: Expects JSON with any of the following keys (include only keys to be updated)
-
-```json
-    {
-      "hostName": "String",
-      "hostStatus": "String",
-    }
-```
-
 ### Update property info
   * PATCH `/property/:propertyId`
 
@@ -206,7 +159,8 @@ npm install
 
 ```json
     {
-      "hostID": "String",
+      "hostName": "String",
+      "hostStatus": "String",
       "propertyName": "String",
       "propertyType": "String",
       "guests": "Number",
@@ -237,14 +191,6 @@ npm install
     }
 ```
 
-
-### Delete host
-  * DELETE `/host/:hostId`
-
-**Path Parameters:**
-  * `hostId` host id
-
-**Success Status Code:** `204`
 
 ### Delete image
   * DELETE `/property/:propertyId`
