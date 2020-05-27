@@ -11,7 +11,7 @@
     "start": "node server/index.js",
     "react-dev": "webpack -d --watch",
     "seed": "psql -U postgres < schema.sql",
-    "datagen": "node --max-old-space-size=20000 generateseed.js",
+    "datagen": "node --max-old-space-size=20000 ./postgres/generateseed.js",
     "jest": "jest --watchAll",
     "enlint": "eslint --ext jsx . --fix"
   },

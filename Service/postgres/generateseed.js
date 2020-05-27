@@ -3,20 +3,12 @@ const faker = require('faker');
 
 const seedsize = 3000000;
 
-const hostWriter = createCsvWriter({
-  path: 'host.csv',
-  header: [
-    {id: 'hostid', title: 'HostId'},
-    {id: 'hostname', title: 'HostName'},
-    {id: 'hoststatus', title: 'HostStatus'},
-    {id: 'joindate', title: 'JoinDate'},
-  ]
-});
-
 const propertyWriter = createCsvWriter({
   path: 'property.csv',
   header: [
     {id: 'propertyid', title: 'PropertyId'},
+    {id: 'hostname', title: 'HostName'},
+    {id: 'hoststatus', title: 'HostStatus'},
     {id: 'city', title: 'City'},
     {id: 'usstate', title: 'UsState'},
     {id: 'country', title: 'Country'},
@@ -40,18 +32,6 @@ const imageWriter = createCsvWriter({
 });
 
 var hostStatus = ['Null', 'Superhost'];
-const hostdata = [];
-const generateHost = () => {
-  for (let i = 0; i < seedsize; i++) {
-    let hostRandom = {};
-    hostRandom.hostid = i+1;
-    hostRandom.hostname = `${faker.name.firstName()} ${faker.name.lastName()}`;
-    hostRandom.hoststatus = faker.random.arrayElement(hostStatus);
-    hostRandom.joindate = faker.date.past(10);
-    hostdata.push(hostRandom);
-  }
-};
-
 var propertynamerandom = ['Ocean Front', 'Beautiful', 'Sunny', 'Magical', 'Renovated', 'Cute', 'Stunning', 'Stylish', 'Amazing', 'Spacious', 'Ocean view', 'Clean', 'Modern', 'Private', 'Dreamy', 'Gorgeous', 'Idyllic', 'A slice of', 'Jewel', 'Cozy', 'Peaceful', '5 star', 'Lovely', 'Charming', 'Newly renovated', 'Sanitized', 'New!'];
 var propertytyperandom = ['Apartment', 'Condomonium', 'Loft', 'Serviced apartment', 'House', 'Bungalow', 'Cabin', 'Chalet', 'Cottage', 'Dome house', 'Earth house', 'Farm stay', 'Houseboat', 'Hut', 'Lighthouse', 'Tiny house', 'Townhouse', 'Villa', 'Guest house', 'Guest stay', 'Barn', 'Boat', 'Bus', 'Camper/RV', 'Campsite', 'Castle', 'Cave', 'Hut', 'Igloo', 'Island', 'Lighthouse', 'Plane', 'Tent', 'Tipi', 'Train', 'Treehouse', 'Windmill', 'Yurt', 'Bed and breakfast', 'Nature lodge', 'Boutique hotel', 'Aparthotel', 'Hostel', 'Hotel', 'Resort'];
 const propertydata = [];
@@ -59,6 +39,8 @@ const generateProperty = () => {
   for (let j = 0; j < seedsize; j++) {
     let propertyRandom = {};
     propertyRandom.propertyid = j+1;
+    hostRandom.hostname = `${faker.name.firstName()} ${faker.name.lastName()}`;
+    hostRandom.hoststatus = faker.random.arrayElement(hostStatus);
     propertyRandom.city = faker.address.city();
     propertyRandom.usstate = faker.address.state();
     propertyRandom.country = faker.address.country();
@@ -94,16 +76,11 @@ const generateImage = () => {
 
 const timeStamp = () => {
   console.log(new Date());
-  generateHost();
   generateProperty();
   generateImage();
 }
 
 timeStamp();
-
-hostWriter
- .writeRecords(hostdata)
- .then(()=> console.log('The Host CSV file was written successfully!', new Date()))
 
 propertyWriter
 .writeRecords(propertydata)
