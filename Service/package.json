@@ -12,9 +12,10 @@
     "react-dev": "webpack -d --watch",
     "legacyseed": "psql -U postgres < schema.sql",
     "datagen": "node --max-old-space-size=20000 ./database/postgres/csvstream.js",
-    "dataseed": "psql -U minjigwak -d airbnbcarousel < ./database/postgres/postgresschema2.sql && bash seedtodb.bash",
+    "dataseed": "psql -U postgres -d airbnbcarousel < ./database/postgres/postgresschema2.sql && bash ./database/postgres/seedtodb.bash",
     "jest": "jest --watchAll",
-    "enlint": "eslint --ext jsx . --fix"
+    "enlint": "eslint --ext jsx . --fix",
+    "k6": "k6 run -u 100 -d 30s k6script.js"
   },
   "dependencies": {
     "@babel/polyfill": "^7.8.7",
@@ -32,6 +33,7 @@
     "faker": "^4.1.0",
     "jest-environment-enzyme": "^7.1.2",
     "jest-enzyme": "^7.1.2",
+    "newrelic": "^6.8.0",
     "pg": "^8.2.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",

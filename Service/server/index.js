@@ -1,12 +1,13 @@
+const newrelic = require('newrelic');
 const express = require('express');
 const app = express();
-const cors = require('cors')
-const pool = require('../database/index')
+const cors = require('cors');
+const pool = require('../database/postgres/index');
 const path = require('path');
-const expressStaticGzip = require('express-static-gzip')
+const expressStaticGzip = require('express-static-gzip');
 
 
-const PORT = 3003;
+const PORT = 3008;
 
 // const {getImage} = require('./controller.js')
 

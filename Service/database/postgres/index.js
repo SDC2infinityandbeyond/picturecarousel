@@ -1,10 +1,24 @@
-const { Client } = require('pg');
-const client = new Client({
-  host: 'localhost',
+const { Pool, Client } = require('pg');
+
+const pool = new Pool({
   user: 'minjigwak',
-  password: '',
+  host: 'localhost',
   database: 'airbnbcarousel',
-  port: '3003'
+  password: '123',
+  port: 5432,
+})
+
+pool.query('SELECT NOW()', (err, res) => {
+  console.log(err, res)
+  pool.end()
+})
+
+const client = new Client({
+  user: 'minjigwak',
+  host: 'localhost',
+  password: '123',
+  database: 'airbnbcarousel',
+  port: 5432,
 })
 
 client.connect((error) => {
@@ -15,4 +29,10 @@ client.connect((error) => {
   }
 })
 
+client.query('SELECT NOW()', (err, res) => {
+  console.log(err,res)
+  client.end()
+})
+
 module.exports = client;
+module.exports = pool;
