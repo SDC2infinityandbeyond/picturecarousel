@@ -42,10 +42,10 @@ npm install
 ## Server API
 
 ### Get property
-  * GET `/property/:propertyID`
+  * GET `/property/:propertyId`
 
 **Path Parameters:**
-  * `propertyID` property id
+  * `propertyId` property id
 
 **Success Status Code:** `200`
 
@@ -55,11 +55,10 @@ npm install
       "propertyId": "Number",
       "hostName": "String",
       "hostStatus": "String",
-      "propertyName": "String",
       "city": "String",
-      "usState": "String",
       "country": "String",
       "propertyType": "String",
+      "propertyName": "String",
       "guests": "Number",
       "bedrooms": "Number",
       "beds": "Number",
@@ -89,7 +88,7 @@ npm install
 
 **Path Parameters:**
   * `propertyId` property id
-  * `imageID`    images id
+  * `imageId`    images id
 
 **Success Status Code:** `200`
 
@@ -116,11 +115,10 @@ npm install
     {
       "hostName": "String",
       "hostStatus": "String",
-      "propertyName": "String",
       "city": "String",
-      "usState": "String",
       "country": "String",
       "propertyType": "String",
+      "propertyName": "String",
       "guests": "Number",
       "bedrooms": "Number",
       "beds": "Number",
@@ -161,8 +159,8 @@ npm install
     {
       "hostName": "String",
       "hostStatus": "String",
-      "propertyName": "String",
       "propertyType": "String",
+      "propertyName": "String",
       "guests": "Number",
       "bedrooms": "Number",
       "beds": "Number",
@@ -172,11 +170,11 @@ npm install
 ```
 
 ### Update image info
-  * PATCH `/property/:propertyId/images/:imageID`
+  * PATCH `/property/:propertyId/images/:imageId`
 
 **Path Parameters:**
   * `propertyId` property id
-  * `imageID`   images id
+  * `imageId`   images id
 
 **Success Status Code:** `200`
 
@@ -201,10 +199,10 @@ npm install
 **Success Status Code:** `204`
 
 ### Delete image
-  * DELETE `/property/:propertyId/images/:imageID`
+  * DELETE `/property/:propertyId/images/:imageId`
 
 **Path Parameters:**
   * `propertyId` property id
-  * `imageID`   images id
+  * `imageId`   images id
 
 **Success Status Code:** `204`
