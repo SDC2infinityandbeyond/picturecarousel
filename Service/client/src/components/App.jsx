@@ -27,6 +27,19 @@ class App extends React.Component {
 
 
 
+
+  // getImage() {
+  //   axios.get('/property/:propertyId/images')
+  //     .then(({ data }) => {
+  //       console.log(data,'getre')
+  //       this.setState({
+  //         data: data,
+  //         rows: data.rows,
+  //       });
+  //     })
+  //     .catch(this.handleError);
+  // }
+
   getImage() {
     axios.get('/carousel')
       .then(({ data }) => {

@@ -10,9 +10,12 @@
   "scripts": {
     "start": "node server/index.js",
     "react-dev": "webpack -d --watch",
-    "seed": "psql -U postgres < schema.sql",
+    "legacyseed": "psql -U postgres < schema.sql",
+    "datagen": "node --max-old-space-size=20000 ./database/postgres/csvstream.js",
+    "dataseed": "psql -U postgres -d airbnbcarousel < ./database/postgres/postgresschema2.sql && bash ./database/postgres/seedtodb.bash",
     "jest": "jest --watchAll",
-    "enlint": "eslint --ext jsx . --fix"
+    "enlint": "eslint --ext jsx . --fix",
+    "k6": "k6 run k6script.js"
   },
   "dependencies": {
     "@babel/polyfill": "^7.8.7",
@@ -21,13 +24,17 @@
     "babel-plugin-styled-components": "^1.10.7",
     "compression-webpack-plugin": "^4.0.0",
     "cors": "^2.8.5",
+    "csv-parser": "^2.3.2",
+    "csv-writer": "^1.6.0",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.2",
     "express": "^4.17.1",
     "express-static-gzip": "^2.0.6",
+    "faker": "^4.1.0",
     "jest-environment-enzyme": "^7.1.2",
     "jest-enzyme": "^7.1.2",
-    "pg": "^8.0.3",
+    "newrelic": "^6.8.0",
+    "pg": "^8.2.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "reactdom": "^2.0.0",

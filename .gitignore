@@ -1,4 +1,6 @@
-
+node_modules
+coverage/
+*.csv
 
 # Service/node_modules
 # Service/coverage

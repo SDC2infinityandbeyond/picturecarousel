@@ -37,3 +37,172 @@ npm install -g webpack
 npm install
 ```
 
+
+
+## Server API
+
+### Get property
+  * GET `/property/:propertyId`
+
+**Path Parameters:**
+  * `propertyId` property id
+
+**Success Status Code:** `200`
+
+**Returns:** JSON
+```json
+    {
+      "propertyId": "Number",
+      "hostName": "String",
+      "hostStatus": "String",
+      "city": "String",
+      "country": "String",
+      "propertyType": "String",
+      "propertyName": "String",
+      "guests": "Number",
+      "bedrooms": "Number",
+      "beds": "Number",
+      "baths": "Number",
+      "propertyDescription": "String",
+    }
+```
+### Get all pictures
+  * GET `/property/:propertyId/images`
+
+**Path Parameters:**
+  * `propertyId` property id
+
+**Success Status Code:** `200`
+
+**Returns:** JSON
+
+```json
+    {
+      "propertyId": "Number",
+      "imageUrl": "String"
+    }
+```
+
+### Get one picture
+  * GET `/property/:propertyId/images/:imageId`
+
+**Path Parameters:**
+  * `propertyId` property id
+  * `imageId`    images id
+
+**Success Status Code:** `200`
+
+**Returns:** JSON
+
+```json
+    {
+      "propertyId": "Number",
+      "imageId": "Number",
+      "imageDescription": "String",
+      "imageUrl": "String"
+    }
+```
+
+
+### Add property
+  * POST `/property`
+
+**Success Status Code:** `201`
+
+**Request Body**: Expects JSON with the following keys.
+
+```json
+    {
+      "hostName": "String",
+      "hostStatus": "String",
+      "city": "String",
+      "country": "String",
+      "propertyType": "String",
+      "propertyName": "String",
+      "guests": "Number",
+      "bedrooms": "Number",
+      "beds": "Number",
+      "baths": "Number",
+      "propertyDescription": "String"
+    }
+```
+
+### Add picture
+  * POST `/property/:propertyId/images`
+
+**Path Parameters:**
+  * `propertyId` property id
+
+**Success Status Code:** `201`
+
+**Request Body**: Expects JSON with the following keys.
+
+```json
+    {
+      "propertyId": "Number",
+      "imageUrl": "String",
+      "imageDescription": "String"
+    }
+```
+
+### Update property info
+  * PATCH `/property/:propertyId`
+
+**Path Parameters:**
+  * `propertyId` property id
+
+**Success Status Code:** `200`
+
+**Request Body**: Expects JSON with any of the following keys (include only keys to be updated)
+
+```json
+    {
+      "hostName": "String",
+      "hostStatus": "String",
+      "propertyType": "String",
+      "propertyName": "String",
+      "guests": "Number",
+      "bedrooms": "Number",
+      "beds": "Number",
+      "baths": "Number",
+      "propertyDescription": "String"
+    }
+```
+
+### Update image info
+  * PATCH `/property/:propertyId/images/:imageId`
+
+**Path Parameters:**
+  * `propertyId` property id
+  * `imageId`   images id
+
+**Success Status Code:** `200`
+
+**Request Body**: Expects JSON with any of the following keys (include only keys to be updated)
+
+```json
+    {
+      "propertyID": "Number",
+      "imageID": "Number",
+      "imageUrl": "String",
+      "imageDescription": "String"
+    }
+```
+
+
+### Delete image
+  * DELETE `/property/:propertyId`
+
+**Path Parameters:**
+  * `propertyId` property id
+
+**Success Status Code:** `204`
+
+### Delete image
+  * DELETE `/property/:propertyId/images/:imageId`
+
+**Path Parameters:**
+  * `propertyId` property id
+  * `imageId`   images id
+
+**Success Status Code:** `204`
