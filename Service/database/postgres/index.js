@@ -11,7 +11,7 @@ const pool = new Pool({
 
 // get property /property/:propertyId
 const getPropertyById = (req, res) => {
-  const propertyId = parseInt(req.params.propertyId);
+  const propertyId = Number(req.params.propertyId);
 
   pool.query(`SELECT * FROM property WHERE propertyId=$1`, [propertyId], (err, results) => {
     if (err) {
@@ -23,7 +23,7 @@ const getPropertyById = (req, res) => {
 
 // get all pictures of a property /property/:propertyId/images
 const getAllImagesOfProperty = (req, res) => {
-  const propertyId = paraseInt(req.params.propertyId);
+  const propertyId = Number(req.params.propertyId);
 
   pool.query(`SELECT * FROM imagearray WHERE propertyId=$1`, [propertyId], (err, results) => {
     if (err) {
@@ -35,8 +35,8 @@ const getAllImagesOfProperty = (req, res) => {
 
 // get one picture from a property /property/:propertyId/images/:imageId
 const getOneImageOfProperty = (req, res) => {
-  const propertyId = parseInt(req.params.propertyId);
-  const imageId = parseInt(req.params.imageId);
+  const propertyId = Number(req.params.propertyId);
+  const imageId = Number(req.params.imageId);
 
   pool.query(`SELECT * FROM imagearray WHERE propertyId=$1 AND imageId=$2`, [propertyId, imageId], (err, results) => {
     if (err) {

@@ -20,10 +20,12 @@ export let options = {
 };
 
 export default function() {
-  // let propertyId = Math.floor(Math.random() * 10000000);
-  let res = http.get(`http://localhost:3008/property/9999999`);
+  let propertyId = Math.floor(Math.random() * 10000000);
+  let res = http.get(`http://localhost:3008/property/${propertyId}/images`);
   check(res, {
-    "is status 200": (r) => r.status === 200
+    "Status 200": (r) => r.status === 200,
+    "Error Rate": (r) => r.status !== 200,
+    "Transaction time < 2000ms:": (r) => r.timings.duration > 2000,
   });
 
   sleep(1);
