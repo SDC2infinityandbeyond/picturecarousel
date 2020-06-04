@@ -1,10 +1,13 @@
 const Pool = require('pg').Pool;
+require('dotenv').config();
+
+const psqlURL = process.env.DB_URL || 'localhost'
 
 const pool = new Pool({
-  user: 'minjigwak',
-  host: 'localhost',
+  user: process.env.DB_USER || 'minjigwak',
+  host: psqlURL,
   database: 'airbnbcarousel',
-  password: '123',
+  password: process.env.DB_PWD || '123',
   port: 5432,
 })
 
