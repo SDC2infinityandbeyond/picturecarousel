@@ -1,6 +1,7 @@
 require('newrelic');
 //require('dotenv').config();
 const express = require('express');
+const morgan = require('morgan');
 const app = express();
 const cors = require('cors');
 const db = require('../database/postgres/index');
