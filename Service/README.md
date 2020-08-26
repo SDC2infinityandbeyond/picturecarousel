@@ -66,7 +66,7 @@ npm install
       "propertyDescription": "String",
     }
 ```
-### Get all pictures
+### Get all images
   * GET `/property/:propertyId/images`
 
 **Path Parameters:**
@@ -83,7 +83,7 @@ npm install
     }
 ```
 
-### Get one picture
+### Get one image
   * GET `/property/:propertyId/images/:imageId`
 
 **Path Parameters:**
@@ -127,7 +127,7 @@ npm install
     }
 ```
 
-### Add picture
+### Add image
   * POST `/property/:propertyId/images`
 
 **Path Parameters:**
