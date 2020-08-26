@@ -190,7 +190,7 @@ npm install
 ```
 
 
-### Delete image
+### Delete property
   * DELETE `/property/:propertyId`
 
 **Path Parameters:**
